@@ -197,8 +197,9 @@ class CloudFileController extends Controller
             $hashedKey     = hash('sha256', $encryptionKey);
             $iv            = substr($hashedKey, 0, 16);
 
+
             $fileContent      = file_get_contents($file->getRealPath());
-            $encryptedContent = openssl_encrypt($fileContent, 'AES-256-CBC', $encryptionKey, 0, $iv);
+            $encryptedContent = openssl_encrypt($fileContent, 'AES-256-CBC', $hashedKey, 0, $iv);
 
             $tempPath = storage_path('app/temp');
 
@@ -222,7 +223,7 @@ class CloudFileController extends Controller
                 'file_name'     => $fileName,
                 'file_path'     => $cloudPath,
                 'file_size'     => $fileSize,
-                'encrypted_key' => base64_encode($encryptionKey),
+                'encrypted_key' => base64_encode($hashedKey),
             ]);
 
             $uploadedFiles[] = [
@@ -244,7 +245,6 @@ class CloudFileController extends Controller
 
         $txtFilePath = "{$txtDirectory}/{$txtFileName}";
         file_put_contents($txtFilePath, $txtContent);
-        //Storage::put($txtFilePath, $txtContent);
 
         $downloadUrl = route('temp-files.download', ['file' => $txtFileName]);
 

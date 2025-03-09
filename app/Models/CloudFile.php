@@ -49,16 +49,4 @@ class CloudFile extends Model
     {
         return $this->trashed();
     }
-
-    public function getShareTokenAttribute($value)
-    {
-        return $value ?: $this->generateShareToken();
-    }
-
-    protected function generateShareToken()
-    {
-        $this->update(['share_token' => $this->share_token ?: Str::uuid()]);
-        return $this->share_token;
-    }
-
 }

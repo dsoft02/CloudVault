@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/{id}/move', [FolderController::class, 'move'])->name('move');
         Route::post('/{id}/copy', [FolderController::class, 'copy'])->name('copy');
         Route::post('/store', [FolderController::class, 'store'])->name('store');
-        Route::patch('/update/{id}', [FolderController::class, 'update'])->name('update');
+        Route::post('/update/{id}', [FolderController::class, 'update'])->name('update');
         Route::post('/{id}/trash', [FolderController::class, 'moveToRecycleBin'])->name('trash');
     });
 

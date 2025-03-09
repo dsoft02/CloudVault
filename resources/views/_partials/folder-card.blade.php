@@ -8,8 +8,6 @@
                     @if(!$folder->is_deleted)
                         <a class="dropdown-item" href="{{ route('folders.open', $folder->id) }}"><i
                                 class="fe fe-folder me-2"></i> Open</a>
-                        <a class="dropdown-item" href="{{ route('folders.share', $folder->id) }}"><i
-                                class="fe fe-share me-2"></i> Share</a>
                         <a class="dropdown-item" href="javascript:void(0);" onclick="showInfo('folder', {{ $folder->id }})">
                             <i class="fe fe-info me-2"></i> Info
                         </a>
