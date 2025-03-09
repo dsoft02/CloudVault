@@ -1,0 +1,29 @@
+.horizontal-logo img{
+    height: 3rem !important;
+    width: auto !important;
+}
+
+@media (min-width: 992px) {
+    .landing-body .landing-page-wrapper .main-menu-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start !important;
+    }
+
+    .landing-body ul.main-menu{
+        margin-left: auto !important;
+    }
+}
+
+.app-sidebar .side-menu__icon{
+    line-height: 1 !important;
+}
+
+.fl-wrapper {
+    z-index: 999999 !important;
+  }
+
+  .error-list{
+    list-style: none;
+    padding-left: 0;
+  }
