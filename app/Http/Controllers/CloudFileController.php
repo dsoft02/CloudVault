@@ -61,7 +61,7 @@ class CloudFileController extends Controller
 
         if ($existingFile) {
             if ($request->override_existing) {
-                Storage::disk('storj')->delete($existingFile->file_path);
+                Storage::disk('local')->delete($existingFile->file_path);
                 $existingFile->delete();
             } else {
                 return response()->json(['message' => 'A file with this name already exists in the destination folder.'], 400);
@@ -73,8 +73,8 @@ class CloudFileController extends Controller
         $newFolderPath = $this->getFolderPathFromBreadcrumb($folder);
         $newPath       = "uploads/" . Auth::id() . "/{$newFolderPath}/{$file->file_name}.enc";
 
-        Storage::disk('storj')->copy($oldPath, $newPath);
-        Storage::disk('storj')->delete($oldPath);
+        Storage::disk('local')->copy($oldPath, $newPath);
+        Storage::disk('local')->delete($oldPath);
 
         $file->update([
             'folder_id' => $newFolderId,
@@ -100,7 +100,7 @@ class CloudFileController extends Controller
 
         $newFilePath = "uploads/" . Auth::id() . "/{$newFolderPath}/{$newFileName}.enc";
 
-        Storage::disk('storj')->copy($file->file_path, $newFilePath);
+        Storage::disk('local')->copy($file->file_path, $newFilePath);
 
         $newFile            = $file->replicate();
         $newFile->folder_id = $newFolderId;
@@ -197,31 +197,23 @@ class CloudFileController extends Controller
             $hashedKey     = hash('sha256', $encryptionKey);
             $iv            = substr($hashedKey, 0, 16);
 
-
             $fileContent      = file_get_contents($file->getRealPath());
             $encryptedContent = openssl_encrypt($fileContent, 'AES-256-CBC', $hashedKey, 0, $iv);
 
-            $tempPath = storage_path('app/temp');
-
-            if (! file_exists($tempPath)) {
-                mkdir($tempPath, 0755, true);
-            }
-
-            $encryptedFilePath = $tempPath . "/{$fileName}.enc";
-            file_put_contents($encryptedFilePath, $encryptedContent);
-
             $folderPath = $this->getFolderPathFromBreadcrumb($folder);
-            $cloudPath  = "uploads/{$user->id}/{$folderPath}/{$fileName}.enc";
+            $cloudPath  = "uploads/{$user->id}/{$folderPath}";
 
-            Storage::disk('storj')->put($cloudPath, file_get_contents($encryptedFilePath));
+            Storage::disk('local')->makeDirectory($cloudPath);
 
-            unlink($encryptedFilePath);
+            $encryptedFilePath = "{$cloudPath}/{$fileName}.enc";
+
+            Storage::disk('local')->put($encryptedFilePath, $encryptedContent);
 
             CloudFile::create([
                 'user_id'       => $user->id,
                 'folder_id'     => $folder ? $folder->id : null,
                 'file_name'     => $fileName,
-                'file_path'     => $cloudPath,
+                'file_path'     => $encryptedFilePath,
                 'file_size'     => $fileSize,
                 'encrypted_key' => base64_encode($hashedKey),
             ]);
@@ -275,7 +267,7 @@ class CloudFileController extends Controller
         }
 
         $encryptedFilePath = $file->file_path;
-        $encryptedContent  = Storage::disk('storj')->get($encryptedFilePath);
+        $encryptedContent  = Storage::disk('local')->get($encryptedFilePath);
 
         $iv               = substr($providedKey, 0, 16);
         $decryptedContent = openssl_decrypt($encryptedContent, 'AES-256-CBC', $providedKey, 0, $iv);
@@ -296,11 +288,11 @@ class CloudFileController extends Controller
     {
         $filePath = $file->file_path;
 
-        if (! Storage::disk('storj')->exists($filePath)) {
+        if (! Storage::disk('local')->exists($filePath)) {
             return back()->with('error', 'File not found.');
         }
 
-        return Storage::disk('storj')->download($filePath, $file->file_name . '.enc');
+        return Storage::disk('local')->download($filePath, $file->file_name . '.enc');
     }
 
     public function showSharedFile($token)
@@ -338,7 +330,7 @@ class CloudFileController extends Controller
         }
 
         $encryptedFilePath = $file->file_path;
-        $encryptedContent  = Storage::disk('storj')->get($encryptedFilePath);
+        $encryptedContent  = Storage::disk('local')->get($encryptedFilePath);
 
         $iv               = substr($providedKey, 0, 16);
         $decryptedContent = openssl_decrypt($encryptedContent, 'AES-256-CBC', $providedKey, 0, $iv);
@@ -381,11 +373,11 @@ class CloudFileController extends Controller
 
         $filePath = $file->file_path;
 
-        if (! Storage::disk('storj')->exists($filePath)) {
+        if (! Storage::disk('local')->exists($filePath)) {
             return back()->with('error', 'File not found.');
         }
 
-        return Storage::disk('storj')->download($filePath, $file->file_name);
+        return Storage::disk('local')->download($filePath, $file->file_name);
     }
 
     private function getFolderPathFromBreadcrumb($folder): string
