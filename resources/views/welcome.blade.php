@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ site_title() }}</title>
-    <meta name="description" content="CloudVault - Secure File Storage & Encryption">
-    <meta name="author" content="CloudVault Team">
+    <meta name="description" content="Secure File Storage & Encryption">
+    <meta name="author" content="Secure Storage Team">
     <meta name="keywords"
         content="cloud storage, secure file storage, encryption, Laravel, Google Cloud, file security, AES encryption, secure document storage, encrypted cloud, private cloud storage">
 
@@ -189,8 +189,8 @@
                                     <div class="mb-3">
                                         <h5 class="fw-semibold text-fixed-white op-9">Manage Your Files Securely</h5>
                                     </div>
-                                    <p class="landing-banner-heading mb-3">Store and Protect Your Data with CloudVault!</p>
-                                    <div class="fs-16 mb-5 text-fixed-white op-7"> CloudVault is a modern and secure cloud-based storage solution that ensures your files are encrypted and accessible only to you. With advanced security features, seamless sharing, and encrypted file management, CloudVault gives you full control over your data.</div>
+                                    <p class="landing-banner-heading mb-3">Store and Protect Your Data with Secure Storage!</p>
+                                    <div class="fs-16 mb-5 text-fixed-white op-7"> Secure Storage is a modern and secure cloud-based storage solution that ensures your files are encrypted and accessible only to you. With advanced security features, seamless sharing, and encrypted file management, Secure Storage gives you full control over your data.</div>
                                     <a href="{{ route('dashboard') }}" target="_blank" class="m-1 btn btn-primary">
                                         Get Started
                                         <i class="fe fe-arrow-right ms-2 align-middle"></i>
@@ -210,7 +210,7 @@
                         <span class="landing-section-heading">Features</span>
                     </p>
                     <div class="landing-title"></div>
-                    <h3 class="fw-semibold mb-2">CloudVault Features</h3>
+                    <h3 class="fw-semibold mb-2">Secure Storage Features</h3>
                     <div class="row justify-content-center">
                         <div class="col-xl-7">
                             <p class="text-muted fs-15 mb-5 fw-normal">Your trusted cloud storage with advanced encryption, ensuring secure file access anytime, anywhere.</p>
@@ -285,7 +285,7 @@
 
             <div class="text-center landing-main-footer py-3">
                 <span class="text-muted fs-15"> Copyright © <span id="year"></span> <a
-                    href="javascript:void(0);" class="text-primary fw-semibold"><u>CloudVault</u></a>.
+                    href="javascript:void(0);" class="text-primary fw-semibold"><u>Secure Storage</u></a>.
                 Designed with <span class="fa fa-heart text-danger"></span> by <a href="javascript:void(0);" class="text-primary fw-semibold"><u>
                 Friday Ameh</u>
                 </a> All

@@ -2,13 +2,13 @@
 [Master Stylesheet]
 
 Project                            :   Valex - HTML5 Bootstrap Admin Template
-Create Date                        :   
-Author & Copyright Ownership       :   Spruko Technologies Private Limited 
+Create Date                        :
+Author & Copyright Ownership       :   Spruko Technologies Private Limited
 Author URL                         :   https://themeforest.net/user/spruko
 Support	                           :   https://support.spruko.com/
 License Details                    :   https://spruko.com/licenses-details
 ------------------------------------------------------------------*/
-/* Table Of Content 
+/* Table Of Content
 variables
 switcher
 accordion
@@ -9186,7 +9186,7 @@ a.tag-addon:hover {
 }
 
 .custom-page .header-logo img {
-  height: 2rem;
+  height: 3.5rem;
 }
 .custom-page .desktop-white {
   display: none;
@@ -16269,7 +16269,7 @@ code[class*=language-] {
   transition: all 0.05s ease;
 }
 .app-sidebar .main-sidebar-header .header-logo img {
-  height: 2rem;
+  height: 3.5rem;
   line-height: 2rem;
 }
 .app-sidebar .main-sidebar-header .header-logo .desktop-logo {
