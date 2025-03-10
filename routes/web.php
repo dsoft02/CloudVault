@@ -5,7 +5,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FolderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecycleBinController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -91,6 +93,11 @@ Route::prefix('files/share')->name('files.shared.')->group(function () {
     Route::get('/{token}', [CloudFileController::class, 'showSharedFile'])->name('show');
     Route::post('/download', [CloudFileController::class, 'downloadSharedFile'])->name('download');
     Route::get('/download/raw', [CloudFileController::class, 'downloadSharedRawFile'])->name('download.raw');
+});
+
+Route::get('/clear-cache', function() {
+    Artisan::call('optimize:clear');
+    return redirect()->route('index');
 });
 
 

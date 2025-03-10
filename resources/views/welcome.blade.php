@@ -5,11 +5,13 @@
 
     <!-- Meta Data -->
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Valex - Bootstrap 5 Premium Admin & Dashboard Template </title>
-    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
-    <meta name="Author" content="Spruko Technologies Private Limited">
+    <title>{{ site_title() }}</title>
+    <meta name="description" content="CloudVault - Secure File Storage & Encryption">
+    <meta name="author" content="CloudVault Team">
+    <meta name="keywords"
+        content="cloud storage, secure file storage, encryption, Laravel, Google Cloud, file security, AES encryption, secure document storage, encrypted cloud, private cloud storage">
 
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
