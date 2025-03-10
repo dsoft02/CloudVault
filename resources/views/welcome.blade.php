@@ -98,12 +98,15 @@
                     <div class="header-element align-items-center">
                         <!-- Start::header-link|switcher-icon -->
                         <div class="btn-list d-lg-none d-block">
-                            <a href="signup.html" class="btn btn-primary-light">
-                                Sign Up
+                            @auth
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary-light">
+                                Dashboard
                             </a>
-                            <button class="btn btn-icon btn-primary" data-bs-toggle="offcanvas" data-bs-target="#switcher-canvas">
-                                <i class="fe fe-settings align-middle"></i>
-                            </button>
+                            @else
+                            <a href="{{ route('login') }}" class="btn btn-primary-light">
+                                Log in
+                            </a>
+                            @endauth
                         </div>
                         <!-- End::header-link|switcher-icon -->
                     </div>
