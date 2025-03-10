@@ -1,6 +1,6 @@
-# CloudVault - Secure File Storage System
+#Secure File Storage System
 
-CloudVault is a secure file storage system built with Laravel and Storj.io. It ensures end-to-end encryption using hybrid encryption techniques (AES and MCrypt), providing users with a highly secure cloud storage solution.
+Secure Storage is a secure file storage system built with Laravel and Storj.io. It ensures end-to-end encryption using hybrid encryption techniques (AES and MCrypt), providing users with a highly secure cloud storage solution.
 
 ## Features
 

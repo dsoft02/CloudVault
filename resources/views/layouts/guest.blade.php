@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ site_title(View::hasSection('title') ? trim(View::yieldContent('title')) : '') }}</title>
-    <meta name="description" content="CloudVault - Secure File Storage & Encryption">
-    <meta name="author" content="CloudVault Team">
+    <meta name="description" content="Secure File Storage & Encryption">
+    <meta name="author" content="Secure Storage Team">
     <meta name="keywords"
         content="cloud storage, secure file storage, encryption, Laravel, Google Cloud, file security, AES encryption, secure document storage, encrypted cloud, private cloud storage">
 
