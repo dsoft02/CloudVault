@@ -5,37 +5,40 @@
 
     <!-- Meta Data -->
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Valex - Bootstrap 5 Premium Admin & Dashboard Template </title>
-    <meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
-    <meta name="Author" content="Spruko Technologies Private Limited">
+    <title>{{ site_title() }}</title>
+    <meta name="description" content="CloudVault - Secure File Storage & Encryption">
+    <meta name="author" content="CloudVault Team">
+    <meta name="keywords"
+        content="cloud storage, secure file storage, encryption, Laravel, Google Cloud, file security, AES encryption, secure document storage, encrypted cloud, private cloud storage">
+
 
     <!-- Favicon -->
-    <link rel="icon" href="../assets/images/brand-logos/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/images/brand-logos/favicon.ico') }}" type="image/x-icon">
 
     <!-- Bootstrap Css -->
-    <link id="style" href="../assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link id="style" href="{{ asset('assets/libs/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" >
 
     <!-- Style Css -->
-    <link href="../assets/css/styles.css" rel="stylesheet" >
-    <link href="../assets/css/custom.css" rel="stylesheet" >
+    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" >
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" >
 
     <!-- Icons Css -->
-    <link href="../assets/css/icons.css" rel="stylesheet" >
+    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" >
 
     <!-- Node Waves Css -->
-    <link href="../assets/libs/node-waves/waves.min.css" rel="stylesheet" >
+    <link href="{{ asset('assets/libs/node-waves/waves.min.css') }}" rel="stylesheet" >
 
     <!-- SwiperJS Css -->
-    <link rel="stylesheet" href="../assets/libs/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}">
 
     <!-- Color Picker Css -->
-    <link rel="stylesheet" href="../assets/libs/flatpickr/flatpickr.min.css">
-    <link rel="stylesheet" href="../assets/libs/@simonwep/pickr/themes/nano.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/libs/@simonwep/pickr/themes/nano.min.css') }}">
 
     <!-- Choices Css -->
-    <link rel="stylesheet" href="../assets/libs/choices.js/public/assets/styles/choices.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/libs/choices.js/public/assets/styles/choices.min.css') }}">
 
     <script>
         if(localStorage.valexdarktheme){
@@ -43,7 +46,7 @@
         }
         if(localStorage.valexrtl){
             document.querySelector("html").setAttribute("dir","rtl")
-            document.querySelector("#style")?.setAttribute("href", "../assets/libs/bootstrap/css/bootstrap.rtl.min.css");
+            document.querySelector("#style")?.setAttribute("href", "{{ asset('assets/libs/bootstrap/css/bootstrap.rtl.min.css') }}");
         }
     </script>
 
@@ -66,8 +69,8 @@
                     <div class="header-element">
                         <div class="horizontal-logo">
                             <a href="index.html" class="header-logo">
-                                <img src="../assets/images/brand-logos/toggle-logo.png" alt="logo" class="toggle-logo">
-                                <img src="../assets/images/brand-logos/toggle-white.png" alt="logo" class="toggle-white">
+                                <img src="{{ asset('assets/images/brand-logos/toggle-logo.png') }}" alt="logo" class="toggle-logo">
+                                <img src="{{ asset('assets/images/brand-logos/toggle-white.png') }}" alt="logo" class="toggle-white">
                             </a>
                         </div>
                     </div>
@@ -127,8 +130,8 @@
                         <div class="landing-logo-container">
                             <div class="horizontal-logo">
                                 <a href="index.html" class="header-logo">
-                                    <img src="../assets/images/brand-logos/desktop-logo.png" alt="logo" class="desktop-logo">
-                                    <img src="../assets/images/brand-logos/desktop-white.png" alt="logo" class="desktop-white">
+                                    <img src="{{ asset('assets/images/brand-logos/desktop-logo.png') }}" alt="logo" class="desktop-logo">
+                                    <img src="{{ asset('assets/images/brand-logos/desktop-white.png') }}" alt="logo" class="desktop-white">
                                 </a>
                             </div>
                         </div>
@@ -303,31 +306,31 @@
     <div id="responsive-overlay"></div>
 
     <!-- Popper JS -->
-    <script src="../assets/libs/@popperjs/core/umd/popper.min.js"></script>
+    <script src="{{ asset('assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
-    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Color Picker JS -->
-    <script src="../assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+    <script src="{{ asset('assets/libs/@simonwep/pickr/pickr.es5.min.js') }}"></script>
 
     <!-- Choices JS -->
-    <script src="../assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="{{ asset('assets/libs/choices.js/public/assets/scripts/choices.min.js') }}"></script>
 
     <!-- Swiper JS -->
-    <script src="../assets/libs/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
 
     <!-- Defaultmenu JS -->
-    <script src="../assets/js/defaultmenu.min.js"></script>
+    <script src="{{ asset('assets/js/defaultmenu.min.js') }}"></script>
 
     <!-- Internal Landing JS -->
-    <script src="../assets/js/landing.js"></script>
+    <script src="{{ asset('assets/js/landing.js') }}"></script>
 
     <!-- Node Waves JS-->
-    <script src="../assets/libs/node-waves/waves.min.js"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
     <!-- Sticky JS -->
-    <script src="../assets/js/sticky.js"></script>
+    <script src="{{ asset('assets/js/sticky.js') }}"></script>
 
 </body>
 
