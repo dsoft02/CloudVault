@@ -30,7 +30,6 @@
     <!-- Icons Css -->
     <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
